@@ -1,6 +1,7 @@
 library test_package;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class EcolabInkWell extends InkWell {
 
@@ -64,7 +65,7 @@ class EcolabInkWell extends InkWell {
   Widget build(BuildContext context) {
     return InkWell(
       child: child,
-      onTap: (){print('埋点。。。');},
+      onTap: (){onTap!();print('埋点。。。');},
       onDoubleTap: onDoubleTap,
       onLongPress: onLongPress,
       onTapDown: onTapDown,
@@ -83,7 +84,7 @@ class EcolabInkWell extends InkWell {
       radius: radius,
       borderRadius: borderRadius,
       customBorder: customBorder,
-      enableFeedback: enableFeedback ?? true,
+      enableFeedback: enableFeedback,
       excludeFromSemantics: excludeFromSemantics,
       focusNode: focusNode,
       canRequestFocus: canRequestFocus,
