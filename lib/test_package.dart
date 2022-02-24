@@ -61,11 +61,42 @@ class EcolabInkWell extends InkWell {
     autofocus: autofocus,
   );
 
+  showAlertDialog(BuildContext context) {
+    // bool isShow = true;
+    // set up the button
+    Widget okButton = TextButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("My title"),
+      content: Text("This is my message."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       child: child,
-      onTap: (){onTap!();print('埋点。。。');},
+      onTap: (){
+        onTap!();
+        showAlertDialog(context);
+        },
       onDoubleTap: onDoubleTap,
       onLongPress: onLongPress,
       onTapDown: onTapDown,
